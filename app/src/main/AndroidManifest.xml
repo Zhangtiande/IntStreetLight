@@ -15,6 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IntStreetLight">
+        <service
+            android:name=".ui.device.PropertiesUpdateService"
+            android:exported="false"></service>
+
         <activity
             android:name=".ui.device.DeviceActivity"
             android:exported="false" />

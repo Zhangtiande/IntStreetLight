@@ -6,26 +6,32 @@ import com.app.intstreetlight.logic.model.Device
 import com.huaweicloud.sdk.iotda.v5.model.ListDevicesRequest
 import com.huaweicloud.sdk.iotda.v5.model.QueryDeviceSimplify
 import com.huaweicloud.sdk.iotda.v5.model.ShowDeviceShadowRequest
+import java.text.SimpleDateFormat
+import java.util.*
 
 object DeviceGet {
 
     fun getDevices() {
-        val request =  ListDevicesRequest()
+        val request = ListDevicesRequest()
         val list = getClient().listDevices(request).devices as ArrayList<QueryDeviceSimplify>
         list.forEach {
-            deviceList.add(Device(it,null))
+            deviceList.add(Device(it, null, null))
         }
     }
 
-    fun getProperties(devices: ArrayList<Device>){
+    fun getProperties() {
         val request = ShowDeviceShadowRequest()
-        devices.forEach {
+        deviceList.forEach {
             request.withDeviceId(it.deviceObj.deviceId)
             val shadow = getClient().showDeviceShadow(request).shadow
-            if (shadow.size == 0) {
-                it.properties = null
-            }else{
-                it.properties = shadow[0].reported.properties as HashMap<*, *>
+            if (shadow.size != 0) {
+                val eventTime = shadow[0].reported.eventTime
+                val format = SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'", Locale.CHINA)
+                val time = format.parse(eventTime)!!.time
+                if (it.eventTime != time) {
+                    it.eventTime = time
+                    it.properties = shadow[0].reported.properties as HashMap<*, *>
+                }
             }
         }
 

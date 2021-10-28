@@ -12,13 +12,25 @@ class DeviceSQLHelper(ctx:Context,n: String, v: Int): SQLiteOpenHelper(ctx,n,nul
             "deviceName text," +
             "deviceDes text)"
 
+    private val propertiesQuery = "create table properties (" +
+            "timeStamp integer primary key ," +
+            "deviceId text," +
+            "ambientLight integer," +
+            "lightIntensity integer," +
+            "raindrops integer," +
+            "automaticDimming integer," +
+            "fog integer," +
+            "foreign key(deviceId) references device(deviceId))"
+
 
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(queryDevice)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-
+        if (oldVersion <= 1) {
+            db!!.execSQL(propertiesQuery)
+        }
     }
 
 

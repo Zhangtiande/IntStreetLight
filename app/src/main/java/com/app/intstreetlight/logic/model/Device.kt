@@ -4,5 +4,6 @@ import com.huaweicloud.sdk.iotda.v5.model.QueryDeviceSimplify
 
 data class Device(
     val deviceObj: QueryDeviceSimplify,
-    var properties: HashMap<*, *>?
+    var properties: HashMap<*, *>?,
+    var eventTime: Long?
 )

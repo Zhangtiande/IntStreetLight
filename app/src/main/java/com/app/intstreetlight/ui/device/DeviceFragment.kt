@@ -22,10 +22,6 @@ class DeviceFragment : Fragment() {
     private lateinit var statusText: TextView
     private lateinit var statusImg: ImageView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,8 +39,7 @@ class DeviceFragment : Fragment() {
             v.findViewById<TextView>(R.id.detail_name).text = this.deviceObj.deviceName
             if (this.properties != null) {
                 ambientLight.text = (this.properties!!["AmbientLight"] as Int).toString()
-                lightIntensity.text = (this.properties!!["LightIntensity"] as Double).toString()
-                //TODO:记得改回Int
+                lightIntensity.text = (this.properties!!["LightIntensity"] as Int).toString()
                 raindrops.text = (this.properties!!["Raindrops"] as Int).toString()
                 automaticDimming.text = getBool(this.properties!!["AutomaticDimming"] as Int)
                 fog.text = getBool(this.properties!!["Fog"] as Int)

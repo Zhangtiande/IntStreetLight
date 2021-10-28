@@ -1,14 +1,17 @@
 package com.app.intstreetlight
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.intstreetlight.StreetLightApplication.Companion.deviceList
+import com.app.intstreetlight.StreetLightApplication.Companion.helper
 import com.app.intstreetlight.logic.dao.ApplicationInfoDao
 import com.app.intstreetlight.logic.net.DeviceGet
 import com.app.intstreetlight.ui.device.DeviceAdapter
+import com.app.intstreetlight.ui.device.PropertiesUpdateService
 import com.app.intstreetlight.ui.load.LoadingView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.delay
@@ -46,11 +49,11 @@ class MainActivity : AppCompatActivity() {
         thread {
             runBlocking {
                 DeviceGet.getDevices()
-                DeviceGet.getProperties(deviceList)
+                DeviceGet.getProperties()
             }
             runOnUiThread {
                 if (StreetLightApplication.isFirstOpen) {
-                    val db = StreetLightApplication.helper.writableDatabase
+                    val db = helper.writableDatabase
                     deviceList.forEach {
                         val contentValues = cvOf(
                             "deviceId" to it.deviceObj.deviceId,
@@ -72,7 +75,24 @@ class MainActivity : AppCompatActivity() {
                 loadingView.visibility = View.GONE
                 val adapter = DeviceAdapter(this, deviceList)
                 recyclerView.adapter = adapter
+                val db = helper.writableDatabase
+                deviceList.forEach {
+                    if (it.properties != null) {
+                        val content = cvOf(
+                            "timeStamp" to it.eventTime,
+                            "deviceId" to it.deviceObj.deviceId,
+                            "ambientLight" to it.properties!!["AmbientLight"],
+                            "lightIntensity" to it.properties!!["LightIntensity"],
+                            "raindrops" to it.properties!!["Raindrops"],
+                            "automaticDimming" to it.properties!!["AutomaticDimming"],
+                            "fog" to it.properties!!["Fog"]
+                        )
+                        db.insert("properties", null, content)
+                    }
+                }
+                db.close()
             }
         }
+        startService(Intent(this, PropertiesUpdateService::class.java))
     }
 }

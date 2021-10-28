@@ -32,7 +32,7 @@ class StreetLightApplication: Application() {
         if (!isInfoSaved("firstOpen")) {
             isFirstOpen = true
         }
-        helper = DeviceSQLHelper(context,"Device.db",1)
+        helper = DeviceSQLHelper(context, "Device.db", 2)
     }
 }
 

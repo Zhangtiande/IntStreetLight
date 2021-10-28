@@ -25,13 +25,13 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="01d7a693-6ee6-44e3-9672-41cecd416100">
-        <schema name="main" object-types="table, view" />
+      <connection connection-id="05f90dc8-fddb-4e78-808b-afeec8f8234d">
+        <schema name="main" object-types="table, view, constraint, index, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="01d7a693-6ee6-44e3-9672-41cecd416100">
+    <connection id="05f90dc8-fddb-4e78-808b-afeec8f8234d">
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
@@ -39,10 +39,10 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="01d7a693-6ee6-44e3-9672-41cecd416100" />
+    <connection id="05f90dc8-fddb-4e78-808b-afeec8f8234d" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="01d7a693-6ee6-44e3-9672-41cecd416100" dataset="main.device" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="05f90dc8-fddb-4e78-808b-afeec8f8234d" dataset="main.properties" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -70,7 +70,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="01d7a693-6ee6-44e3-9672-41cecd416100" active="true">
+      <connection id="05f90dc8-fddb-4e78-808b-afeec8f8234d" active="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -85,7 +85,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="D:\AndroidProject\IntStreetLight\Device.db" schema="main" />
+            <file path="D:\AndroidProject\db\Device.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
