@@ -38,6 +38,7 @@ class PropertiesUpdateService : IntentService("PropertiesUpdateService") {
                 db.endTransaction()
             }
             db.close()
+
             Thread.sleep(20000)
         }
 

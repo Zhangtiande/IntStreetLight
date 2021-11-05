@@ -25,24 +25,24 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="05f90dc8-fddb-4e78-808b-afeec8f8234d">
-        <schema name="main" object-types="table, view, constraint, index, column, dataset trigger" />
+      <connection connection-id="7a6c37fb-9f8b-43cc-8a18-83d773ea9d97">
+        <schema name="main" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="05f90dc8-fddb-4e78-808b-afeec8f8234d">
-      <console name="Connection" type="STANDARD" schema="main" session="Main" />
+    <connection id="7a6c37fb-9f8b-43cc-8a18-83d773ea9d97">
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from main.properties where "deviceId"="d"order by "timeStamp" desc limit 12]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="05f90dc8-fddb-4e78-808b-afeec8f8234d" />
+    <connection id="7a6c37fb-9f8b-43cc-8a18-83d773ea9d97" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="05f90dc8-fddb-4e78-808b-afeec8f8234d" dataset="main.properties" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="7a6c37fb-9f8b-43cc-8a18-83d773ea9d97" dataset="main.properties" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -70,7 +70,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="05f90dc8-fddb-4e78-808b-afeec8f8234d" active="true">
+      <connection id="7a6c37fb-9f8b-43cc-8a18-83d773ea9d97" active="true">
         <database>
           <name value="Connection" />
           <description value="" />

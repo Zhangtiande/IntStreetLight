@@ -32,7 +32,10 @@ android {
 }
 
 dependencies {
-// https://mvnrepository.com/artifact/com.github.lecho/hellocharts-library
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    runtimeOnly 'androidx.lifecycle:lifecycle-runtime:2.4.0'
+    runtimeOnly 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    runtimeOnly 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'

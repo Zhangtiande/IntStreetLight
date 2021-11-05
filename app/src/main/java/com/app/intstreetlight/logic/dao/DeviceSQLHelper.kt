@@ -25,6 +25,7 @@ class DeviceSQLHelper(ctx:Context,n: String, v: Int): SQLiteOpenHelper(ctx,n,nul
 
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(queryDevice)
+        db.execSQL(propertiesQuery)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
