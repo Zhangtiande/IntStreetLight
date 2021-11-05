@@ -17,7 +17,7 @@
         android:theme="@style/Theme.IntStreetLight">
         <service
             android:name=".ui.device.PropertiesUpdateService"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity
             android:name=".ui.device.DeviceActivity"

@@ -13,5 +13,9 @@ class MainViewModel : ViewModel() {
 
     private val _devices = MutableLiveData<ArrayList<QueryDeviceSimplify>>()
 
+    fun setDevices(list: ArrayList<QueryDeviceSimplify>) {
+        _devices.postValue(list)
+    }
+
 
 }

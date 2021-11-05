@@ -4,7 +4,6 @@ import com.app.intstreetlight.StreetLightApplication.Companion.deviceList
 import com.app.intstreetlight.StreetLightApplication.Companion.helper
 import com.app.intstreetlight.getClient
 import com.app.intstreetlight.logic.model.DatList
-import com.app.intstreetlight.logic.model.Device
 import com.huaweicloud.sdk.iotda.v5.model.ListDevicesRequest
 import com.huaweicloud.sdk.iotda.v5.model.QueryDeviceSimplify
 import com.huaweicloud.sdk.iotda.v5.model.ShowDeviceShadowRequest
@@ -13,14 +12,10 @@ import java.util.*
 
 object DeviceGet {
 
-    fun getDevices() {
-        val request = ListDevicesRequest()
-        val list = getClient().listDevices(request).devices as ArrayList<QueryDeviceSimplify>
-        deviceList.clear()
-        list.forEach {
-            deviceList.add(Device(it, null, null, null))
-        }
-    }
+     fun getDevices(): ArrayList<QueryDeviceSimplify> {
+         val request = ListDevicesRequest()
+         return getClient().listDevices(request).devices as ArrayList<QueryDeviceSimplify>
+     }
 
     fun getProperties() {
         val request = ShowDeviceShadowRequest()
