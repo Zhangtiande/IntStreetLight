@@ -34,15 +34,17 @@ class LoadingView :LinearLayout{
     private lateinit var  iv: ImageView
 
 
-    fun showLoading() {
+    private fun showLoading() {
         iv.visibility = GONE
         progressBar.visibility = VISIBLE
+        tv.text = "正在加载……"
     }
 
     fun showSuccess() {
         iv.setImageResource(R.mipmap.load_success)
         iv.visibility = VISIBLE
         progressBar.visibility = GONE
+        tv.text = "加载成功！"
     }
 
     fun showFail() {
@@ -51,9 +53,6 @@ class LoadingView :LinearLayout{
         progressBar.visibility = GONE
     }
 
-    fun setText(txt: String?) {
-        tv.text = txt
-    }
 
     private fun init() {
         val view: View = LayoutInflater.from(context)
@@ -61,6 +60,7 @@ class LoadingView :LinearLayout{
         progressBar = view.findViewById(R.id.progressBar)
         tv = findViewById(R.id.tv)
         iv = findViewById(R.id.iv)
+        showLoading()
     }
 
 

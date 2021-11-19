@@ -27,16 +27,19 @@ class DeviceAdapter(
             id.setOnClickListener {
                 index = adapterPosition
                 val intent = Intent(context, DeviceActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(intent)
             }
             img.setOnClickListener{
                 index = adapterPosition
                 val intent = Intent(context, DeviceActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(intent)
             }
             name.setOnClickListener{
                 index = adapterPosition
                 val intent = Intent(context, DeviceActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(intent)
             }
         }

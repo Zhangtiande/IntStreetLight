@@ -4,10 +4,9 @@ import com.huaweicloud.sdk.iotda.v5.model.QueryDeviceSimplify
 import java.util.*
 
 data class Device(
-    val deviceObj: QueryDeviceSimplify,
+    var deviceObj: QueryDeviceSimplify,
     var properties: HashMap<*, *>?,
     var eventTime: Long?,
-    var datList: DatList?
 )
 
 

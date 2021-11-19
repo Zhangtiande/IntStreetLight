@@ -8,9 +8,8 @@ import java.util.*
 class XAdapter : ValueFormatter() {
     override fun getAxisLabel(value: Float, axis: AxisBase?): String {
         val date = Date(value.toLong())
-        val formatter = SimpleDateFormat("dd-HH:mm:ss", Locale.CHINA)
+        val formatter = SimpleDateFormat("HH:mm", Locale.CHINA)
         val str = formatter.format(date)
-        print(str)
         return str
     }
 
